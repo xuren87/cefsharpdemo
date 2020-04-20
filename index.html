@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- saved from url=(0077)https://eid.pingan.com/api/v1/uc/m/getProtocol?type=4&source=kiosk&lang=zh-CN -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      
@@ -16,8 +16,11 @@
             iFrame = null;
         }
 
-        (async function () {
-            await CefSharp.BindObjectAsync("boundAsync");
+         (async function () {
+             if (CefSharp) {
+                 await CefSharp.BindObjectAsync("boundAsync");
+             }
+            
             document.getElementById('agreeBtn').addEventListener('click', async function () {
                 var result = await boundAsync.agree();
             });
